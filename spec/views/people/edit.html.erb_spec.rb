@@ -4,14 +4,14 @@ RSpec.describe "people/edit", :type => :view do
   before(:each) do
     @person = assign(:person, Person.create!(
       :first_name => "MyString",
-      :last_name => ""
+      :last_name => "MyString"
     ))
   end
 
   it "renders the edit person form" do
     render
 
-    assert_select "form[action=?][method=?]", person_path(@person), "post" do
+      assert_select "form[action=?][method=?]", person_path(@person), "post" do
 
       assert_select "input#person_first_name[name=?]", "person[first_name]"
 

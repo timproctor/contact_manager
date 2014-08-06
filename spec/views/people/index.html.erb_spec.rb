@@ -5,11 +5,11 @@ RSpec.describe "people/index", :type => :view do
     assign(:people, [
       Person.create!(
         :first_name => "First Name",
-        :last_name => ""
+        :last_name => "Last Name"
       ),
       Person.create!(
         :first_name => "First Name",
-        :last_name => ""
+        :last_name => "Last Name"
       )
     ])
   end
@@ -17,6 +17,6 @@ RSpec.describe "people/index", :type => :view do
   it "renders a list of people" do
     render
     assert_select "tr>td", :text => "First Name".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => "Last Name".to_s, :count => 2
   end
 end

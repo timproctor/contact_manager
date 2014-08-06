@@ -167,5 +167,5 @@ RSpec.describe PhoneNumbersController, :type => :controller do
       expect(response).to redirect_to(bob)
     end
   end
-
 end
+

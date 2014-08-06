@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe EmailAddress, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	let(:email_address) do
+     EmailAddress.new(email: "spock@example.com", person_id: 1)
+   end
+
+   it 'is valid' do
+     email_address.person_id = nil
+     expect(email_address).not_to be_valid, "you need both email and person_id"
+   end
 end
