@@ -72,5 +72,17 @@ describe 'the person view', type: :feature do
   	it 'has an emails list' do
   		expect(page).to have_selector('li', text: person.email_addresses.first.email )
   	end
+
+  	it 'has an add email address link' do
+  		expect(page).to have_link('Add email address', href: new_email_address_path(person_id: person.id))
+  	end
+
+  # 	it 'has an add email address link' do
+		# 	page.click_link('Add email address')
+		# 	page.fill_in('Email', with: 'data@example.com')
+		# 	page.click_button('Create email address')
+		# 	expect(current_path).to eq(person_path(person))
+		# 	expect(page).to have_content('data@example.com')
+		# end
 	end
 end
