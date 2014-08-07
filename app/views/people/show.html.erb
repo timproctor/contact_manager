@@ -35,7 +35,7 @@
 	<% end %>
 </p>
 
-<%= link_to 'Add email address', new_email_address_path(person_id: @person.id) %>
+<%= link_to 'Add email address', new_email_address_path(contact_id: @person.id, contact_type: 'Person')	 %>
 
 
 <%= link_to 'Edit', edit_person_path(@person) %> 
