@@ -61,18 +61,15 @@ describe 'the company view', type: :feature do
 	end
 
 	describe "how emails go" do
-		skip
   	let(:company) { Company.create(name: "we hire j devs")}
 
   	before(:each) do
-  		skip
   		company.email_addresses.create(email: "data@example.com")
   		company.email_addresses.create(email: "other@example.com")
   		visit company_path(company)
   	end
 
   	it 'has an emails list' do
-  		skip
   		expect(page).to have_selector('li', text: company.email_addresses.first.email )
   	end
 
