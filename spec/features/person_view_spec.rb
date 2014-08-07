@@ -84,5 +84,26 @@ describe 'the person view', type: :feature do
 			expect(current_path).to eq(person_path(person))
 			expect(page).to have_content('data@example.com')
 		end
+
+		it 'edits an email address' do
+			email = person.email_addresses.first
+			old_number = email.email
+
+			first(:link, 'edit').click
+			page.fill_in('Email', with: 'data@example.com')
+			page.click_button('Update Email address')
+			expect(current_path).to eq(person_path(person))
+			expect(page).to have_content('data@example.com')
+		end
+
+		it 'deletes email addresses' do
+		  deleted = person.email_addresses.first
+		  email = person.email_addresses.last
+
+		  first(:link, 'delete').click
+		  expect(current_path).to eq(person_path(person))
+		  expect(page).to have_content(email.email)
+		  expect(page).to_not have_content(deleted.email)
+		end
 	end
 end
