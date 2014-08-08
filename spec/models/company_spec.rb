@@ -25,7 +25,6 @@ RSpec.describe Company, :type => :model do
 
 	it "responds with its created email addresses" do
 		company.email_addresses.build(email: 'me@example.com')
-		expect(company.eamil_addresses.map(&:email)).to eq(['me@example.com'])
+		expect(company.email_addresses.map(&:email)).to eq(['me@example.com'])
 	end
-
 end

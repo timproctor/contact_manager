@@ -103,14 +103,13 @@ RSpec.describe PeopleController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {first_name: "Will", last_name: "Smith"}
       }
 
       it "updates the requested person" do
         person = Person.create! valid_attributes
         put :update, {:id => person.to_param, :person => new_attributes}, valid_session
         person.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested person as @person" do

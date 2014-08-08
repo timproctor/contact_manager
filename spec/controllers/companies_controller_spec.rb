@@ -103,14 +103,13 @@ RSpec.describe CompaniesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: "we hire j devs"}
       }
 
       it "updates the requested company" do
         company = Company.create! valid_attributes
         put :update, {:id => company.to_param, :company => new_attributes}, valid_session
         company.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested company as @company" do

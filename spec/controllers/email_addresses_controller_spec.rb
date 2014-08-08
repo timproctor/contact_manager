@@ -24,7 +24,7 @@ RSpec.describe EmailAddressesController, :type => :controller do
   # EmailAddress. As you add validations to EmailAddress, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {email: "some@example.com", person_id: 1}
+    {email: "some@example.com", contact_id: 1, contact_type: "Person"}
   }
 
   let(:invalid_attributes) {
@@ -71,7 +71,7 @@ RSpec.describe EmailAddressesController, :type => :controller do
     describe "with valid params" do
 
       let(:alice) { Person.create(first_name: 'Alice', last_name: 'Smith') }
-      let(:valid_attributes) { {email: 'sample@example.com', person_id: alice.id} }
+      let(:valid_attributes) { {email: 'sample@example.com', contact_id: alice.id, contact_type: "Person"} }
 
       it "creates a new EmailAddress" do
         expect {
@@ -108,7 +108,7 @@ RSpec.describe EmailAddressesController, :type => :controller do
     describe "with valid params" do
 
       let(:alice) { Person.create(first_name: 'Alice', last_name: 'Smith') }
-      let(:valid_attributes) { {email: 'sample@example.com', person_id: alice.id} }
+      let(:valid_attributes) { {email: 'sample@example.com', contact_id: alice.id, contact_type: "Person"} }
 
       it "updates the requested email_address" do
         email_address = EmailAddress.create! valid_attributes
@@ -147,7 +147,7 @@ RSpec.describe EmailAddressesController, :type => :controller do
   describe "DELETE destroy" do
 
     let(:alice) { Person.create(first_name: 'Alice', last_name: 'Smith') }
-    let(:valid_attributes) { {email: 'sample@example.com', person_id: alice.id} }
+    let(:valid_attributes) { {email: 'sample@example.com', contact_id: alice.id, contact_type: "Person"} }
 
     it "destroys the requested email_address" do
       email_address = EmailAddress.create! valid_attributes

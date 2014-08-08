@@ -74,12 +74,10 @@ describe 'the company view', type: :feature do
   	end
 
   	it 'has an add email address link' do
-  		skip
-  		expect(page).to have_link('Add email address', href: new_email_address_path(company_id: company.id))
+  		expect(page).to have_link('Add email address', href: new_email_address_path(contact_id: company.id, contact_type: "Company" ))
   	end
 
   	it 'creates a new email address' do
-  		skip
 			page.click_link('Add email address')
 			fill_in('Email', with: 'data@example.com')
 			page.click_on('Create Email address')
@@ -88,7 +86,6 @@ describe 'the company view', type: :feature do
 		end
 
 		it 'edits an email address' do
-			skip
 			email = company.email_addresses.first
 			old_number = email.email
 
@@ -100,7 +97,6 @@ describe 'the company view', type: :feature do
 		end
 
 		it 'deletes email addresses' do
-			skip
 		  deleted = company.email_addresses.first
 		  email = company.email_addresses.last
 
