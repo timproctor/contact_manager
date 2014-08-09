@@ -23,10 +23,6 @@ RSpec.describe PhoneNumbersController, :type => :controller do
     { number: "mystring", contact_id: 1, contact_type: "Person" }
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
-
   let(:valid_session) { {} }
 
   describe "GET new" do
@@ -69,18 +65,6 @@ RSpec.describe PhoneNumbersController, :type => :controller do
         expect(response).to redirect_to(alice)
       end
     end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved phone_number as @phone_number" do
-        post :create, {:phone_number => invalid_attributes}, valid_session
-        expect(assigns(:phone_number)).to be_a_new(PhoneNumber)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:phone_number => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
   end
 
   describe "PUT update" do
@@ -107,20 +91,6 @@ RSpec.describe PhoneNumbersController, :type => :controller do
         phone_number = PhoneNumber.create! valid_attributes
         put :update, {:id => phone_number.to_param, :phone_number => valid_attributes}, valid_session
         expect(response).to redirect_to(bob)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the phone_number as @phone_number" do
-        phone_number = PhoneNumber.create! valid_attributes
-        put :update, {:id => phone_number.to_param, :phone_number => invalid_attributes}, valid_session
-        expect(assigns(:phone_number)).to eq(phone_number)
-      end
-
-      it "re-renders the 'edit' template" do
-        phone_number = PhoneNumber.create! valid_attributes
-        put :update, {:id => phone_number.to_param, :phone_number => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
       end
     end
   end
