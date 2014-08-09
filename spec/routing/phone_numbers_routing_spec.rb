@@ -3,16 +3,8 @@ require "rails_helper"
 RSpec.describe PhoneNumbersController, :type => :routing do
   describe "routing" do
 
-    it "routes to #index" do
-      expect(:get => "/phone_numbers").to route_to("phone_numbers#index")
-    end
-
     it "routes to #new" do
       expect(:get => "/phone_numbers/new").to route_to("phone_numbers#new")
-    end
-
-    it "routes to #show" do
-      expect(:get => "/phone_numbers/1").to route_to("phone_numbers#show", :id => "1")
     end
 
     it "routes to #edit" do
@@ -30,6 +22,5 @@ RSpec.describe PhoneNumbersController, :type => :routing do
     it "routes to #destroy" do
       expect(:delete => "/phone_numbers/1").to route_to("phone_numbers#destroy", :id => "1")
     end
-
   end
 end

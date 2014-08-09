@@ -19,10 +19,6 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe PhoneNumbersController, :type => :controller do
-
-  # This should return the minimal set of attributes required to create a valid
-  # PhoneNumber. As you add validations to PhoneNumber, be sure to
-  # adjust the attributes here as well.
   let(:valid_attributes) {
     { number: "mystring", contact_id: 1, contact_type: "Person" }
   }
@@ -31,26 +27,7 @@ RSpec.describe PhoneNumbersController, :type => :controller do
     skip("Add a hash of attributes invalid for your model")
   }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # PhoneNumbersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-
-  describe "GET index" do
-    it "assigns all phone_numbers as @phone_numbers" do
-      phone_number = PhoneNumber.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:phone_numbers)).to eq([phone_number])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested phone_number as @phone_number" do
-      phone_number = PhoneNumber.create! valid_attributes
-      get :show, {:id => phone_number.to_param}, valid_session
-      expect(assigns(:phone_number)).to eq(phone_number)
-    end
-  end
 
   describe "GET new" do
     it "assigns a new phone_number as @phone_number" do
